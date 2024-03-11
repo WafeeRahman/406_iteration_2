@@ -1,26 +1,22 @@
-#include <stdio.h>
 #include <raylib.h>
 #include "aalloc.h"
+#include "player.h"
 
 int main(int argc, char **argv)
 {
-  Arena arena = create_arena(sizeof(int));
-  int *a = aalloc(&arena, sizeof(int));
-  *a = 4;
-  printf("A is %d", *a);
-  aclear(&arena);
-  int *b = aalloc(&arena, sizeof(int));
-  *b = 5;
-  printf("B is %d", *b);
-  
+  Arena arena = create_arena(sizeof(Player) * 2);  
   InitWindow(800, 600, "Test");
   SetTargetFPS(120);
 
+  Player *player = create_player(&arena, (Vector2){.x=0, .y=0});
+
   while(!WindowShouldClose())
   {
+    update_player(player, GetFrameTime());
+    
     BeginDrawing();
     ClearBackground(RAYWHITE);
-    DrawText("Success", 400, 300, 40, BLACK);
+    draw_player(player);
     EndDrawing();
   }
 
