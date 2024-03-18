@@ -4,7 +4,7 @@ Player *create_player(Arena *arena, Vector2 position)
 {
   Player *new_player = {0};
   new_player = aalloc(arena, sizeof(Player));
-  new_player->sprite = LoadTexture("assets/player.png");
+  new_player->sprite = LoadTexture("../assets/player.png");
   new_player->position.x = CENTER;
   new_player->position.y = 400;
   return new_player;
