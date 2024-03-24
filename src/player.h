@@ -13,6 +13,7 @@ typedef struct Player
 {
   Texture2D sprite;
   Vector2 position;
+  int health;
 } Player;
 
 #endif
@@ -20,3 +21,4 @@ typedef struct Player
 Player *create_player(Arena *arena, Vector2 position);
 void update_player(Player *player, float delta_time);
 void draw_player(Player *player);
+void hit_player(Player *player);

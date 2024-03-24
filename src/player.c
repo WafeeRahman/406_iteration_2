@@ -7,22 +7,23 @@ Player *create_player(Arena *arena, Vector2 position)
   new_player->sprite = LoadTexture("../assets/player.png");
   new_player->position.x = CENTER;
   new_player->position.y = 400;
+  new_player->health = 100;
   return new_player;
 }
 
 void update_player(Player *player, float delta_time)
 {
-  if(IsKeyPressed(KEY_RIGHT))
+  if (IsKeyPressed(KEY_RIGHT))
   {
-    if(player->position.x < BOUNDS_X_POS)
+    if (player->position.x < BOUNDS_X_POS)
     {
       player->position.x += MOVEMENT_DIST;
     }
   }
 
-  if(IsKeyPressed(KEY_LEFT))
+  if (IsKeyPressed(KEY_LEFT))
   {
-    if(player->position.x > BOUNDS_X_NEG)
+    if (player->position.x > BOUNDS_X_NEG)
     {
       player->position.x -= MOVEMENT_DIST;
     }
@@ -32,9 +33,13 @@ void update_player(Player *player, float delta_time)
 void draw_player(Player *player)
 {
   DrawTexture(
-    player->sprite,
-    player->position.x,
-    player->position.y,
-    WHITE
-  );
+      player->sprite,
+      player->position.x,
+      player->position.y,
+      WHITE);
+}
+
+void hit_player(Player *player)
+{
+  player->health -= 10;
 }
