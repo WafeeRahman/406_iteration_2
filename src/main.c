@@ -32,11 +32,10 @@ int main(int argc, char **argv)
         // Enter arena
         inMainMenu = false;
 
-        // Arena code
+
         Arena arena = create_arena(sizeof(Player) * 2);
         Player *player = create_player(&arena, (Vector2){.x = 0, .y = 0});
 
-        // Health bar variables
         DrawText("HP:", 550, 10, 20, BLACK);
         Rectangle healthBar = {600, 10, 200, 20};
 
@@ -68,7 +67,6 @@ int main(int argc, char **argv)
           EndDrawing();
         }
 
-        // Clean up
         aclear(&arena);
         destroy_arena(arena);
       }
@@ -76,7 +74,7 @@ int main(int argc, char **argv)
       else if (CheckCollisionPointRec(mousePoint, (Rectangle){100, 300, 200, 50}))
       {
         // Display instructions screen
-        // (Currently left blank)
+
       }
     }
   }
@@ -85,7 +83,7 @@ int main(int argc, char **argv)
   return 0;
 }
 
-// Function to display main menu
+// Display main menu
 void displayMainMenu()
 {
   BeginDrawing();

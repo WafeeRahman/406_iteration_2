@@ -7,7 +7,7 @@ Player *create_player(Arena *arena, Vector2 position)
   new_player->sprite = LoadTexture("../assets/player.png");
   new_player->position.x = CENTER;
   new_player->position.y = 400;
-  new_player->health = 100;
+  new_player->health = 100; //NEW - Health
   return new_player;
 }
 

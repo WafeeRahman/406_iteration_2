@@ -13,7 +13,7 @@ typedef struct Player
 {
   Texture2D sprite;
   Vector2 position;
-  int health;
+  int health; //NEW -- HEALTH
 } Player;
 
 #endif
